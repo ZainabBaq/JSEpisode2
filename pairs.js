@@ -37,11 +37,32 @@ Array.prototype.getRandom = function () {
 };
 
 function pairs(names) {
-  // Your code goes here
+  //Your code goes here
+  const groups = [];
+  if (names) {
+    while (names.length > 1) {
+      groups.push([names.getRandom(), names.getRandom()]);
+    }
+    if (names.length === 1) groups.push([names.getRandom()]);
+  }
+  return groups;
 }
 
 module.exports = pairs;
 
 console.log(
-  pairs(["Asis", "Hamsa", "Fawas", "Mishmish", "Hussein", "Lailz", "Mr Potato"])
+  "even case : ",
+  pairs(["Mishmish", "Fawas", "Asis", "Hussein", "Lailz", "Mr Potato"]) // even case
+);
+console.log(
+  "odd case : ",
+  pairs(["Mishmish", "Fawas", "Asis", "Hussein", "Lailz"]) // odd case
+);
+console.log(
+  "Empty case : ",
+  pairs([]) // empty case
+);
+console.log(
+  "nothing case :",
+  pairs() // nothing case
 );
